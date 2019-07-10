@@ -1,3 +1,5 @@
+// eslint-disable-next-line
+
 import React from 'react';
 
 export default class FetchTest extends React.Component {
