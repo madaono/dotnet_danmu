@@ -7,7 +7,7 @@ export interface Rect {
   width: number,
   height: number
 }
-export interface DanmuMessage {
+export interface IDanmuMessage {
   position: Point,
   size: Rect,
   created: boolean,
