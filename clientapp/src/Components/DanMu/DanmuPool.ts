@@ -16,6 +16,14 @@ export class DanmuPool implements IDanmuPool{
     }
   }
 
+  addMessages = (msgArr: Array<IDanmuMessage>) => {
+    if((this._MessagePool.length + msgArr.length) < this._PoolSize) {
+      this._MessagePool.concat(msgArr)
+    }else {
+      console.log("can't push any more")
+    }
+  }
+
   getMessage = () => {
     const tempMessage = this._MessagePool.shift()
     if(tempMessage) {

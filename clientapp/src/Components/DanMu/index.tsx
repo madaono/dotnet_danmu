@@ -35,13 +35,13 @@ export default class Danmu extends Component<IDanmuConfig,IDanmuState> {
     }
 
     let danmuTrack = new DanmuTrack(this._ImgDanmuPool, {
-      top: 400,
+      top: 200,
       height: 30
     })
-
+    // this.addMessages(list)
     this.addDanmuTrack(danmuTrack)
 
-    this._TextDanmuPool.addMessage(
+    this._ImgDanmuPool.addMessage(
       new ImgMessage({
         url: "https://img.3dmgame.com/uploads/images/thumbnews/20190713/1563013911_274314.jpg",
         width: 300,
@@ -50,11 +50,11 @@ export default class Danmu extends Component<IDanmuConfig,IDanmuState> {
     )
 
     // setInterval(() => {
-    //   this._TextDanmuPool.addMessage(
-    //     new TextMessage({
-    //       msg: "werhowfsndfkjs",
-    //     })
-    //   )
+      this._TextDanmuPool.addMessage(
+        new TextMessage({
+          msg: "werhowfsndfkjs",
+        })
+      )
     // }, 100)
     this.renderByAnimationFrame()
   }
@@ -101,9 +101,11 @@ export default class Danmu extends Component<IDanmuConfig,IDanmuState> {
     )
   }
   sendImgMsg = (url: string): void => {
-    this._TextDanmuPool.addMessage(
+    this._ImgDanmuPool.addMessage(
       new ImgMessage({
         url,
+        width:300,
+        height:300
       })
     )
   }
