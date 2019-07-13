@@ -1,12 +1,14 @@
 import { BaseMessage } from "./BaseMessage";
 import { IDanmuTrackInfo } from "../interface/IDanmuTrack";
+import { bool } from "prop-types";
 
 interface TextMessageConfig {
   msg: string,
   color?: string,
   strokeColor?: string,
   fontSize?: number,
-  fontFamily?: string
+  fontFamily?: string,
+  self?: boolean
 }
 
 export default class TextMessage extends BaseMessage {
@@ -15,7 +17,8 @@ export default class TextMessage extends BaseMessage {
     color: '#FFF',
     strokeColor: '#000',
     fontSize: 22,
-    fontFamily: '黑体'
+    fontFamily: '黑体',
+    self: false
   }
   constructor(config?: TextMessageConfig) {
     super()
@@ -51,6 +54,9 @@ export default class TextMessage extends BaseMessage {
     ctx.fillStyle = this.config.strokeColor || '#000'
     ctx.strokeText(this.config.msg, this.position.left, this.position.top)
     ctx.fillStyle = this.config.color || '#FFF'
+    if (this.config.self) {
+      ctx.fillStyle = "#bfa"
+    }
     ctx.fillText(this.config.msg, this.position.left, this.position.top)
   }
 

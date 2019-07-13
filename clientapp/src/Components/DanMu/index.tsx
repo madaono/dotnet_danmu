@@ -96,6 +96,7 @@ export default class Danmu extends Component<IDanmuConfig,IDanmuState> {
     this._TextDanmuPool.addMessage(
       new TextMessage({
         msg,
+        self: true
       })
     )
   }
