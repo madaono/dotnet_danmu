@@ -5,7 +5,7 @@ import Danmu from '../Components/DanMu';
 const DanmuPage: React.FC = () => {
   return (
     <div className="danmuPage">
-      <Danmu width={500} height={500} />
+      <Danmu width={1280} height={720} />
     </div>
   )
 }

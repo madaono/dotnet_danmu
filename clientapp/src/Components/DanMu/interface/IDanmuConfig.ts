@@ -4,7 +4,7 @@ export interface IDanmuConfig{
 }
 
 export interface IDanmuTrackConfig{
-  width: number,
+  top: number,
   height: number
 }
 
