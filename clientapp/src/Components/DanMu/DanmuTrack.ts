@@ -1,13 +1,10 @@
 import { IDanmuTrack, IDanmuTrackInfo} from './interface/IDanmuTrack'
 import { IDanmuMessage } from './interface/IDanmuMessage'
-// import Danmu from './index'
 import { DanmuPool } from './DanmuPool'
 import { IDanmuTrackConfig } from './interface/IDanmuConfig';
 
 export class DanmuTrack implements IDanmuTrack {
-  // _Danmu?: Danmu;
   protected _DanmuPool: DanmuPool;
-  // _DanmuTrackConfig: IDanmuTrackConfig;
   public danmuMessages: IDanmuMessage[] = new Array<IDanmuMessage>()
   private _DanmuTrackInfo: IDanmuTrackInfo = {
     maxWidth: 0,
@@ -17,7 +14,6 @@ export class DanmuTrack implements IDanmuTrack {
 
   constructor(danmuPool: DanmuPool, danmuTrackConfig: IDanmuTrackConfig) {
     this._DanmuPool = danmuPool
-    // this._DanmuTrackConfig = danmuTrackConfig;
     this.initConfig(danmuTrackConfig)
   }
 
@@ -57,8 +53,4 @@ export class DanmuTrack implements IDanmuTrack {
       }
     }
   }
-
-  // setDanmuku(danmuku: Danmu): void {
-  //   this._Danmu = danmuku
-  // }
 }

@@ -6,40 +6,42 @@ import { DanmuPool } from './DanmuPool';
 import { DanmuTrack } from './DanmuTrack';
 import TextMessage from './MessageTpl/TextMessage';
 import ImgMessage from './MessageTpl/ImgMessage';
+import { IDanmuPool } from './interface/IDanmuPool';
 
 export default class Danmu extends Component<IDanmuConfig,IDanmuState> {
   private danmuTracks: Array<IDanmuTrack> = new Array<IDanmuTrack>()
   private _Canvas!: HTMLCanvasElement
   private _Ctx!: CanvasRenderingContext2D;
+  private _TextDanmuPool: IDanmuPool
+  private _ImgDanmuPool: IDanmuPool
   constructor(props: Readonly<IDanmuConfig>) {
     super(props);
     this.state = {
       isPause: false,
       lastRenderTime: 0
     }
+    this._TextDanmuPool = new DanmuPool(200)
+    this._ImgDanmuPool = new DanmuPool(20)
   }
 
   componentDidMount() {
     this._Ctx = this._Canvas.getContext('2d') as CanvasRenderingContext2D
-    const danmuPool = new DanmuPool(200)
-    const imgDanmuPool = new DanmuPool(20)
-
     for (let i = 0; i < 6; i++) {
-      let danmuTrack = new DanmuTrack(danmuPool, {
+      let danmuTrack = new DanmuTrack(this._TextDanmuPool, {
         top: (10 + 30) * i + 10,
         height: 30
       })
       this.addDanmuTrack(danmuTrack)
     }
 
-    let danmuTrack = new DanmuTrack(imgDanmuPool, {
+    let danmuTrack = new DanmuTrack(this._ImgDanmuPool, {
       top: 400,
       height: 30
     })
 
     this.addDanmuTrack(danmuTrack)
 
-    danmuPool.addMessage(
+    this._TextDanmuPool.addMessage(
       new ImgMessage({
         url: "https://img.3dmgame.com/uploads/images/thumbnews/20190713/1563013911_274314.jpg",
         width: 300,
@@ -47,13 +49,13 @@ export default class Danmu extends Component<IDanmuConfig,IDanmuState> {
       })
     )
 
-    setInterval(() => {
-      danmuPool.addMessage(
-        new TextMessage({
-          msg: "werhowfsndfkjs",
-        })
-      )
-    }, 100)
+    // setInterval(() => {
+    //   this._TextDanmuPool.addMessage(
+    //     new TextMessage({
+    //       msg: "werhowfsndfkjs",
+    //     })
+    //   )
+    // }, 100)
     this.renderByAnimationFrame()
   }
  
@@ -90,6 +92,21 @@ export default class Danmu extends Component<IDanmuConfig,IDanmuState> {
     }
   }
   
+  sendTextMsg = (msg: string): void => {
+    this._TextDanmuPool.addMessage(
+      new TextMessage({
+        msg,
+      })
+    )
+  }
+  sendImgMsg = (url: string): void => {
+    this._TextDanmuPool.addMessage(
+      new ImgMessage({
+        url,
+      })
+    )
+  }
+
   render() {
     const {width, height} = this.props
     return(
@@ -99,6 +116,8 @@ export default class Danmu extends Component<IDanmuConfig,IDanmuState> {
         </canvas>
         <DanmuController 
           trigerPlay = {this.trigerPlay}
+          sendTextMsg = {this.sendTextMsg}
+          sendImgMsg = {this.sendImgMsg}
         />
       </div>
     )
