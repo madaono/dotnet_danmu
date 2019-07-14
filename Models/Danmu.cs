@@ -1,10 +1,12 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace dotsession.Models
 {
     public class Danmu
     {
-        public int ID { get; set; }
+        [Key]
+        public int Id { get; set; }
 //        public string Type { get; set; }
         public int DanmuId { get; set; }
 //        public ImgDanmu ImgDanmu { get; set; }

@@ -20,12 +20,14 @@ namespace dotsession.Controllers
         public async Task<IList<TextDanmu>> GetAllTextDanmu()
         {
             return await _danmuService.GetAllTextDanmu();
+            
         }
 
         [HttpGet]
         public async Task<IList<ImgDanmu>> GetAllImgDanmu()
         {
             return await _danmuService.GetAllImgDanmu();
-        }
+        }  
+
     }
 }
