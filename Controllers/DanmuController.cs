@@ -1,17 +1,17 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using dotsession.Models;
 using dotsession.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace dotsession.Controllers
 {
-    [Produces("application/json","application/xml")]
-    [Route("api/[controller]")]
-    public class DanmuController : Controller
+    [Produces("application/json")]
+    [ApiController]
+    [Route("[controller]/[action]")]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public class DanmuController : ControllerBase
     {
         private readonly IDanmuService _danmuService;
         public DanmuController(IDanmuService service) => _danmuService = service;

@@ -1,10 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using dotsession.Data;
 using dotsession.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace dotsession.Services
 {
@@ -16,14 +14,14 @@ namespace dotsession.Services
         public async Task<IList<TextDanmu>> GetAllTextDanmu()
         {
             await EnsureDatabaseCreatedAsync();
-            var TextDanmus = _danmuContext.TextDanmus.Include(m => m.Msg).ToList();
+            var TextDanmus = _danmuContext.TextDanmus.ToList();
             return TextDanmus;
         }
 
         public async Task<IList<ImgDanmu>> GetAllImgDanmu()
         {
             await EnsureDatabaseCreatedAsync();
-            var ImgDanmus = _danmuContext.ImgDanmus.Include(m => m.Url).ToList();
+            var ImgDanmus = _danmuContext.ImgDanmus.ToList();
             return ImgDanmus;
         }
 
