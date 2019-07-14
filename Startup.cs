@@ -1,4 +1,5 @@
 using dotsession.Models;
+using dotsession.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,6 +35,7 @@ namespace dotsession
                 {
                     options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
                 });
+            services.AddScoped<IDanmuService, DanmuService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

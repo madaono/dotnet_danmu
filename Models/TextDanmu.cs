@@ -4,7 +4,7 @@ namespace dotsession.Models
 {
     public class TextDanmu
     {
-        public Guid DanmuId { get; set; }
+        public int DanmuID { get; set; }
         public string Msg { get; set; }
         public string Type { get; set; }
         public string Color { get; set; }
