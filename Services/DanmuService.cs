@@ -25,15 +25,15 @@ namespace dotsession.Services
             return ImgDanmus;
         }
 
-        public async Task UpdateTextDanmu(TextDanmu textDanmu)
+        public async Task AddTextDanmu(TextDanmu textDanmu)
         {
-            _danmuContext.TextDanmus.Update(textDanmu);
+            _danmuContext.TextDanmus.Add(textDanmu);
             await _danmuContext.SaveChangesAsync();
         }
         
-        public async Task UpdateImgDanmu(ImgDanmu imgDanmu)
+        public async Task AddImgDanmu(ImgDanmu imgDanmu)
         {
-            _danmuContext.ImgDanmus.Update(imgDanmu);
+            _danmuContext.ImgDanmus.Add(imgDanmu);
             await _danmuContext.SaveChangesAsync();
         }
         private async Task EnsureDatabaseCreatedAsync()

@@ -24,21 +24,24 @@ namespace dotsession.Data
                         Type = "TextDanmu",
                         Msg = "test dm from db",
                         FontSize = 18,
-                        Color = "#bfc"
+                        Color = "#bfc",
+                        FontFamily = "宋体"
                     });
                     _context.TextDanmus.Add(new TextDanmu
                     {
                         Type = "TextDanmu",
                         Msg = "test dm from db22",
                         FontSize = 22,
-                        Color = "#bbb"
+                        Color = "#bbb",
+                        FontFamily = "宋体"
                     });
                     _context.TextDanmus.Add(new TextDanmu
                     {
                         Type = "TextDanmu",
                         Msg = "test dm from db33",
                         FontSize = 24,
-                        Color = "#ccc"
+                        Color = "#ccc",
+                        FontFamily = "宋体"
                     });
                 }
 

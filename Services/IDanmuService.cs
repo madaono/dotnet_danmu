@@ -10,7 +10,7 @@ namespace dotsession.Services
 //        Task<IList<Danmu>> getAllDanmu(UserInfo userInfo);
         Task<IList<TextDanmu>> GetAllTextDanmu();
         Task<IList<ImgDanmu>> GetAllImgDanmu();
-        Task UpdateTextDanmu(TextDanmu textDanmu);
-        Task UpdateImgDanmu(ImgDanmu imgDanmu);
+        Task AddTextDanmu(TextDanmu textDanmu);
+        Task AddImgDanmu(ImgDanmu imgDanmu);
     }
 }

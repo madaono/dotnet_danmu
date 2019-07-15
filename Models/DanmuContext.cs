@@ -19,16 +19,7 @@ namespace dotsession.Models
             modelBuilder.Entity<TextDanmu>().ToTable("TextDanmu");
             modelBuilder.Entity<ImgDanmu>().ToTable("ImgDanmu");
             modelBuilder.Entity<Danmu>().ToTable("Danmu");
-//            modelBuilder.Entity<TextDanmu>().Property(l => l.Type)
-//                .HasMaxLength(10)
-//                .IsRequired();
-//            modelBuilder.Entity<ImgDanmu>().Property(l => l.Url)
-//                .IsRequired();
-//            modelBuilder.Entity<ImgDanmu>().Property(l => l.DanmuId)
-//                .IsRequired();
-//            modelBuilder.Entity<ImgDanmu>().Property(l => l.Type)
-//                .HasMaxLength(10)
-//                .IsRequired();
+
             base.OnModelCreating(modelBuilder);
         }
     }

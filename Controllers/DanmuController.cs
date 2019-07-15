@@ -28,6 +28,18 @@ namespace dotsession.Controllers
         {
             return await _danmuService.GetAllImgDanmu();
         }  
+        
+        [HttpPost]
+        public async void SendTextDanmu(TextDanmu textDanmu)
+        { 
+            await _danmuService.AddTextDanmu(textDanmu);
+        } 
+        
+        [HttpPost]
+        public async void SendImgDanmu(ImgDanmu imgDanmu)
+        { 
+            await _danmuService.AddImgDanmu(imgDanmu);
+        }  
 
     }
 }
