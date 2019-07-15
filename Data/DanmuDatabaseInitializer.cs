@@ -13,11 +13,11 @@ namespace dotsession.Data
 
         public async Task CreateAndSeedDatabaseAsync()
         {
-            if (s_databaseChecked)
+            if (!s_databaseChecked)
             {
                 s_databaseChecked = true;
                 await _context.Database.MigrateAsync();
-                if (await _context.TextDanmus.CountAsync() == 0)
+                if (await _context.TextDanmus.CountAsync() < 10)
                 {
                     _context.TextDanmus.Add(new TextDanmu
                     {
@@ -45,7 +45,7 @@ namespace dotsession.Data
                     });
                 }
 
-                if (await _context.ImgDanmus.CountAsync() == 0)
+                if (await _context.ImgDanmus.CountAsync() < 10)
                 {
                     _context.ImgDanmus.Add(new ImgDanmu
                     {

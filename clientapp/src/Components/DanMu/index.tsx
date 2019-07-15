@@ -44,7 +44,7 @@ export default class Danmu extends Component<IDanmuConfig,IDanmuState> {
     this.getAllTextDanmu().then(res => {
       if(Array.isArray(res) && res.length > 0) {
         res.map(i => {
-          if(!i.Msg) return;
+          if(!i.msg) return;
           this._TextDanmuPool.addMessage(
             new TextMessage({
               ...i
@@ -56,8 +56,8 @@ export default class Danmu extends Component<IDanmuConfig,IDanmuState> {
     });
     this.getAllImgDanmu().then(res => {
       if(Array.isArray(res) && res.length > 0) {
-        res.map(i => {
-          if(!i.Url) return;
+        res.map((i) => {
+          if(!i.url) return;
           this._ImgDanmuPool.addMessage(
             new ImgMessage({
               ...i
