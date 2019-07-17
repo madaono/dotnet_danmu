@@ -28,13 +28,13 @@ namespace dotsession.Services
         public async Task AddTextDanmu(TextDanmu textDanmu)
         {
             _danmuContext.TextDanmus.Add(textDanmu);
-            await _danmuContext.SaveChangesAsync();
+            _danmuContext.SaveChanges();
         }
         
         public async Task AddImgDanmu(ImgDanmu imgDanmu)
         {
             _danmuContext.ImgDanmus.Add(imgDanmu);
-            await _danmuContext.SaveChangesAsync();
+            _danmuContext.SaveChanges();
         }
         private async Task EnsureDatabaseCreatedAsync()
         {

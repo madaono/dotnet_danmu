@@ -6,7 +6,7 @@ import "./DanmuPage.css"
 const DanmuPage: React.FC = () => {
   return (
     <div className="danmuPage">
-      <video src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" 
+      <video src={require("../Static/big_buck_bunny.mp4")}
         id="testVideo"
         autoPlay
       >
